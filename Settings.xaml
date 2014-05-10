@@ -1,0 +1,75 @@
+﻿<Window x:Class="QuickLeankitCard.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings" 
+         SizeToContent="WidthAndHeight"
+        MinWidth="400px"
+        FocusManager.FocusedElement="{Binding ElementName=Title}" Closing="closing">
+    <StackPanel Margin="20px">
+        <TextBlock FontSize="40px" Height="42" VerticalAlignment="Top" Margin="0,0,0,20" MinHeight="50">Settings</TextBlock>
+        
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="0,0,10,10" />
+                </Style>
+                
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Grid.Row="0">
+                <TextBlock FontSize="20px">Username</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="0">
+                <TextBox Name="Username" Height="22"></TextBox>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <TextBlock FontSize="20px">Password</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <PasswordBox Name="Password" Height="22"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="2">
+                <TextBlock FontSize="20px">Team Name</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="2">
+                <TextBox Name="TeamName" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="3">
+                <TextBlock FontSize="20px">Board ID</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="3">
+                <TextBox Name="BoardID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="4">
+                <TextBlock FontSize="20px">Default Card Type ID</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="4">
+                <TextBox Name="DefaultCardTypeID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="5">
+                <TextBlock FontSize="20px">Default Lane ID</TextBlock>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="5">
+                <TextBox Name="DefaultLaneID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="6">
+                <Button Name="Save" Margin="5" FontSize="20" IsDefault="True" Click="Save_Click">Save</Button>
+            </Grid>
+        </Grid>
+
+
+
+    </StackPanel>
+</Window>
