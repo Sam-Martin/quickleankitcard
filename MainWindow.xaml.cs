@@ -72,11 +72,11 @@ namespace QuickLeankitCard
                 {
                     // Connect
                     var LeanKitAPI = new LeanKit.API.Client.Library.LeanKitClientFactory().Create(LeanKitAuth);
-                    LeanKitAPI.AddCard(BoardID, newCard);
+                    e.Result= LeanKitAPI.AddCard(BoardID, newCard);
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex.Message);
+                    e.Result = ex.Message;
                 }
             }
             else
@@ -91,6 +91,29 @@ namespace QuickLeankitCard
             Body.Text = "";
             Title.Text = "";
             Submit.IsEnabled = true;
+            Body.IsEnabled = true;
+            Title.IsEnabled = true;
+            // Show our result
+            Window window = new Window()
+            {
+                Title = "Result",
+                ShowInTaskbar = false,               // don't show the dialog on the taskbar
+                Topmost = true,                      // ensure we're Always On Top
+                ResizeMode = ResizeMode.NoResize,    // remove excess caption bar buttons
+                Owner = Application.Current.MainWindow,
+                SizeToContent=SizeToContent.WidthAndHeight,
+                FontSize=12,
+                
+            };
+
+            if (e.Result.GetType().Name != "CardAddResult")
+            {
+                window.Content = e.Result;
+                window.ShowDialog();
+            }
+            
+            
+
         }
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +121,14 @@ namespace QuickLeankitCard
 
             Int32 DefaultLaneID = Int32.Parse(Properties.Settings.Default.DefaultLaneID);
             Int32 DefaultCardTypeID = Int32.Parse(Properties.Settings.Default.DefaultCardTypeID);
-            if (DefaultCardTypeID != 0 && DefaultLaneID > 0)
+            Int32 DefaultCardPriority = Int32.Parse(Properties.Settings.Default.DefaultCardPriority);
+            System.Security.SecureString Password = Properties.Settings.Default.PasswordSecurestring.DecryptString();
+            string Username = Properties.Settings.Default.UserName;
+            Int32 BoardID = Int32.Parse(Properties.Settings.Default.BoardID);
+            string TeamName = Properties.Settings.Default.TeamName;
+            
+            
+            if (DefaultCardTypeID != 0 && DefaultLaneID > 0 && Password.Length !=0 && Username.Length != 0 && BoardID > 0 && TeamName.Length > 0 && DefaultCardPriority >=0 && DefaultCardPriority <=3)
             {
                 // Create our card!
                 LeanKit.API.Client.Library.TransferObjects.Card newCard = new LeanKit.API.Client.Library.TransferObjects.Card
@@ -106,6 +136,7 @@ namespace QuickLeankitCard
                     LaneId = DefaultLaneID,
                     TypeId = DefaultCardTypeID,
                     Title = Title.Text,
+                    Priority = DefaultCardPriority,
                     Description = Body.Text,
                 };
                 var submitWorker = new BackgroundWorker();
@@ -114,6 +145,8 @@ namespace QuickLeankitCard
                 submitWorker.RunWorkerCompleted += backgroundWorkerAddCard_Return;
                 Submit.Content = "Submitting";
                 Submit.IsEnabled = false;
+                Body.IsEnabled = false;
+                Title.IsEnabled = false;
             }
             else
             {

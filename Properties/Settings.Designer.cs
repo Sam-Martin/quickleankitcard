@@ -94,5 +94,17 @@ namespace QuickLeankitCard.Properties {
                 this["DefaultLaneID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultCardPriority {
+            get {
+                return ((string)(this["DefaultCardPriority"]));
+            }
+            set {
+                this["DefaultCardPriority"] = value;
+            }
+        }
     }
 }

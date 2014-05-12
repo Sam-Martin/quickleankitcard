@@ -4,7 +4,7 @@
         Title="Leankit Card Creator" 
          SizeToContent="WidthAndHeight"
         MinWidth="450px"
-        FocusManager.FocusedElement="{Binding ElementName=Title}">
+        FocusManager.FocusedElement="{Binding ElementName=Title}" Icon="VSNETWebServiceDynamicDiscovery_8215.ico">
     <StackPanel Margin="20px">
         <TextBlock FontSize="40px" Height="42" VerticalAlignment="Top" Margin="0,0,0,20" MinHeight="50">Leankit Card Creator</TextBlock>
         <Grid>
@@ -36,7 +36,7 @@
                 <TextBlock FontSize="20px">Body</TextBlock>
             </Grid>
             <Grid Grid.ColumnSpan="2" Grid.Row="2">
-                <TextBox Name="Body" MinHeight="200"></TextBox>
+                <TextBox Name="Body" MinHeight="200" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></TextBox>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="3">
                 <Button Name="Configure" Margin="5" Click="Configure_Click">Config</Button>

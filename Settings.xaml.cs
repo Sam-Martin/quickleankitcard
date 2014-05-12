@@ -33,7 +33,7 @@ namespace QuickLeankitCard
             TeamName.Text = Properties.Settings.Default.TeamName;
             DefaultCardTypeID.Text = Properties.Settings.Default.DefaultCardTypeID;
             DefaultLaneID.Text = Properties.Settings.Default.DefaultLaneID;
-
+            DefaultCardPriority.Text = Properties.Settings.Default.DefaultCardPriority;
             
         }
 
@@ -46,6 +46,7 @@ namespace QuickLeankitCard
             Properties.Settings.Default["DefaultLaneID"] = DefaultLaneID.Text;
             Properties.Settings.Default["TeamName"] = TeamName.Text;
             Properties.Settings.Default["DefaultCardTypeID"] = DefaultCardTypeID.Text;
+            Properties.Settings.Default["DefaultCardPriority"] = DefaultCardPriority.Text;
             
             Properties.Settings.Default.Save();
             this.Close();

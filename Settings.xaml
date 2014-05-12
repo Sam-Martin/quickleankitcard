@@ -27,6 +27,7 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Grid.Row="0">
                 <TextBlock FontSize="20px">Username</TextBlock>
@@ -50,21 +51,28 @@
                 <TextBlock FontSize="20px">Board ID</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="3">
-                <TextBox Name="BoardID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+                <TextBox Name="BoardID" Height="22" />
             </Grid>
             <Grid Grid.Column="0" Grid.Row="4">
                 <TextBlock FontSize="20px">Default Card Type ID</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="4">
-                <TextBox Name="DefaultCardTypeID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+                <TextBox Name="DefaultCardTypeID" Height="22"/>
             </Grid>
             <Grid Grid.Column="0" Grid.Row="5">
                 <TextBlock FontSize="20px">Default Lane ID</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="5">
-                <TextBox Name="DefaultLaneID" Height="22" ToolTip="E.g. the teamname from http://teamname.leankit.com"/>
+                <TextBox Name="DefaultLaneID" Height="22"/>
+            </Grid>
+            <Grid Grid.Column="0" Grid.Row="6">
+                <TextBlock FontSize="20px">Default Card Priority</TextBlock>
             </Grid>
             <Grid Grid.Column="1" Grid.Row="6">
+                <TextBox Name="DefaultCardPriority" Height="22" ToolTip="1-3 (low - high)"/>
+
+            </Grid>
+            <Grid Grid.Column="1" Grid.Row="7">
                 <Button Name="Save" Margin="5" FontSize="20" IsDefault="True" Click="Save_Click">Save</Button>
             </Grid>
         </Grid>
