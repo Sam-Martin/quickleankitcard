@@ -119,12 +119,24 @@ namespace QuickLeankitCard
         {
 
 
-            Int32 DefaultLaneID = Int32.Parse(Properties.Settings.Default.DefaultLaneID);
-            Int32 DefaultCardTypeID = Int32.Parse(Properties.Settings.Default.DefaultCardTypeID);
-            Int32 DefaultCardPriority = Int32.Parse(Properties.Settings.Default.DefaultCardPriority);
+            Int32 DefaultLaneID;
+            Int32 DefaultCardTypeID;
+            Int32 DefaultCardPriority;
+            Int32 BoardID;
+            try
+            {
+                DefaultCardPriority = Int32.Parse(Properties.Settings.Default.DefaultCardPriority);
+                DefaultCardTypeID = Int32.Parse(Properties.Settings.Default.DefaultCardTypeID);
+                DefaultLaneID = Int32.Parse(Properties.Settings.Default.DefaultLaneID);
+                BoardID = Int32.Parse(Properties.Settings.Default.BoardID);
+            }
+            catch
+            {
+                Submit.Content = "Invalid number in config";
+                return;
+            }
             System.Security.SecureString Password = Properties.Settings.Default.PasswordSecurestring.DecryptString();
             string Username = Properties.Settings.Default.UserName;
-            Int32 BoardID = Int32.Parse(Properties.Settings.Default.BoardID);
             string TeamName = Properties.Settings.Default.TeamName;
             
             
